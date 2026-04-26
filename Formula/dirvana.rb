@@ -1,8 +1,8 @@
 class Dirvana < Formula
   desc "Intelligent directory navigation and command augmentation tool for Zsh"
   homepage "https://github.com/jlkendrick/dirvana"
-  url "https://github.com/jlkendrick/dirvana/archive/refs/tags/v1.1.8.tar.gz"
-  sha256 "49e597d7b6915cb0f868c40c2b567835598f98825cd2d1021badac3ff073a7c4"
+  url "https://github.com/jlkendrick/dirvana/archive/refs/tags/v1.1.9.tar.gz"
+  sha256 "309a3fb2307319a45a2d1c1c38e284fc668a825bbde2e7ba53d5428eaa311e30"
   license "MIT"
 
   depends_on "cmake" => :build
