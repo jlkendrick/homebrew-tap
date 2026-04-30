@@ -1,8 +1,8 @@
-class Dirvana < Formula
+class Sprite < Formula
   desc "Intelligent directory navigation and command augmentation tool for Zsh"
-  homepage "https://github.com/jlkendrick/dirvana"
-  url "https://github.com/jlkendrick/dirvana/archive/refs/tags/v1.2.0.tar.gz"
-  sha256 "0c7c2afc6a07d20e3b4625b2157b91ab0eb8cc7862da3832106db4cbaa5df0d3"
+  homepage "https://github.com/jlkendrick/sprite"
+  url "https://github.com/jlkendrick/sprite/archive/refs/tags/v1.2.1.tar.gz"
+  sha256 "5caa79924075e341060bb4057af6e641c520aac7df4dd3c5dc619c1da651b9a5"
   license "MIT"
 
   depends_on "cmake" => :build
@@ -11,19 +11,19 @@ class Dirvana < Formula
   def install
     system "cmake", "-S", ".", "-B", "build",
            "-DCMAKE_BUILD_TYPE=Release",
-           "-DDIRVANA_VERSION=#{version}",
+           "-DSPRITE_VERSION=#{version}",
            *std_cmake_args
-    system "cmake", "--build", "build", "--target", "dv-binary"
-    bin.install "build/dv-binary"
-    zsh_completion.install "docs/scripts/_dv"
-    etc.install "docs/scripts/dirvana.zsh"
+    system "cmake", "--build", "build", "--target", "sp-binary"
+    bin.install "build/sp-binary"
+    zsh_completion.install "docs/scripts/_sp"
+    etc.install "docs/scripts/sprite.zsh"
   end
 
   def caveats
     <<~EOS
       Run the following to finish setup:
 
-        dv-binary init
+        sp-binary init
 
       Then reload your shell:
 
@@ -32,6 +32,6 @@ class Dirvana < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/dv-binary --version")
+    assert_match version.to_s, shell_output("#{bin}/sp-binary --version")
   end
 end
